@@ -1,0 +1,47 @@
+# ===============================
+# = Hibernate datasource
+# ===============================
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/passwordreset
+    username: postgres
+    password: docker
+    driver-class-name: org.postgresql.Driver
+
+  # ===============================
+# = JPA configurations
+# ===============================
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: create-drop
+    properties:
+      hibernate.dialect: org.hibernate.dialect.PostgreSQL92Dialect
+
+# ===============================
+# = MAIL configurations
+# ===============================
+  mail:
+    default-encoding: UTF-8
+    host: smtp.gmail.com
+    username: noreply.tcc.ifpb@gmail.com
+    password: noreply123
+    port: 587
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+    protocol: smtp
+    test-connection: false
+
+# ===============================
+# = Logging configurations
+# ===============================
+logging:
+  level:
+    root: WARN
+    com.memorynotfound: DEBUG
+    org.springframework.web: INFO
+    org.springframework.security: INFO

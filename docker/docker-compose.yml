@@ -1,0 +1,18 @@
+version: '3'
+volumes:
+  dbdata:
+
+services:
+  mysql:
+    image: mysql
+    container_name: mysql
+    volumes:
+      - dbdata:/var/lib/mysql
+    restart: always
+    environment:
+      - MYSQL_ROOT_PASSWORD="secret"
+      - MYSQL_DATABASE="resetpassword"
+      - MYSQL_USER="root"
+      - MYSQL_PASSWORD="secret"
+    ports:
+      - "3306:3306"
